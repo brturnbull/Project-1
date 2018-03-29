@@ -1,0 +1,62 @@
+body {
+  background-color:lightBlue;
+  width: 80%;
+  margin:0 auto;
+}
+/* BURGER CSS ANIMATIONS */
+
+.burger {
+  width:100px;
+  height:100px;
+  position:absolute;
+  border-radius: 100px;
+  animation-name: fall;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display:inline-block;
+}
+
+.burger img{
+  height:100px;
+  width:100px;
+}
+/* 
+#b1 {
+  position:absolute;
+}
+
+#b2 {
+
+}
+
+#b3 {
+
+} */
+
+/* #b2 {
+  position:relative;
+  left:300px;
+}
+#b3 {
+  position:relative;
+  left:500px;
+} */
+
+@keyframes fall {
+  from {top: -100px;}
+  to {top: 900px;}
+}
+
+/* SLOTH CSS ANIMATIONS */
+
+#sloth {
+  position:absolute;
+  margin: 0 auto;
+  bottom:10px;
+  border: 3px peachPuff dotted;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  background-color:grey;
+}
