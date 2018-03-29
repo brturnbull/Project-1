@@ -1,4 +1,4 @@
-body {
+main {
   background-color:lightBlue;
   width: 80%;
   margin:0 auto;
@@ -21,27 +21,21 @@ body {
   height:100px;
   width:100px;
 }
-/* 
+
 #b1 {
   position:absolute;
+  left:20%
 }
 
 #b2 {
-
+  position:absolute;
+  left:45%;
 }
 
 #b3 {
-
-} */
-
-/* #b2 {
-  position:relative;
-  left:300px;
+  position:absolute;
+  left:70%
 }
-#b3 {
-  position:relative;
-  left:500px;
-} */
 
 @keyframes fall {
   from {top: -100px;}
@@ -54,9 +48,11 @@ body {
   position:absolute;
   margin: 0 auto;
   bottom:10px;
-  border: 3px peachPuff dotted;
   height: 100px;
   width: 100px;
-  border-radius: 100px;
-  background-color:grey;
+}
+
+#sloth img {
+  height:100px;
+  width:100px;
 }
