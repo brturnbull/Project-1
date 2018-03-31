@@ -1,8 +1,74 @@
+/* FONTS
+font-family: 'Luckiest Guy', cursive;
+font-family: 'Sigmar One', cursive;
+font-family: 'Nothing You Could Do', cursive;
+ */
+
+html {
+background-color:lightgreen;
+}
+
 main {
-  background-color:lightBlue;
   width: 80%;
   margin:0 auto;
 }
+
+header {
+  background:url(./images/cloud.png) cover;
+  background-size:cover;
+}
+
+#page1 {
+  height:1000px;
+}
+
+#page2 {
+  height:1000px;
+}
+
+/* MODAL */
+
+#modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* MODAL CONTENT */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+h2.score {
+  color:grey;
+  font-size:50px;
+  text-align:center;
+  margin-top: 50px;
+  font-family: 'Nothing You Could Do', cursive;
+  z-index: 1;
+}
+
+
+/* .leaderboard {
+  width: 400px;
+  float:right;
+  text-align: left;
+  font-family: 'Luckiest Guy', cursive;
+  font-weight: light;
+
+} */
+
 /* BURGER CSS ANIMATIONS */
 
 .burger {
@@ -15,9 +81,26 @@ main {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   display:inline-block;
+  z-index: -1;
+}
+.carrot {
+  width:100px;
+  height:100px;
+  position:absolute;
+  border-radius: 100px;
+  animation-name: fall;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display:inline-block;
+  z-index: -1;
 }
 
-.burger img{
+.carrot img {
+  height:60px;
+}
+
+.burger img {
   height:100px;
   width:100px;
 }
@@ -27,9 +110,19 @@ main {
   left:20%
 }
 
+#c1 {
+  position:absolute;
+  left: 30%;
+}
+
 #b2 {
   position:absolute;
   left:45%;
+}
+
+#c2 {
+  position:absolute;
+  left: 54%;
 }
 
 #b3 {
