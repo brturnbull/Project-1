@@ -11,6 +11,8 @@ $(() =>{
   const $burgers = $('.burger');
   const $carrots = $('.carrot');
 
+  var scores = ['Player 1': '', 'Player 2': '', 'Player 3': '', 'Player 4': '', 'Player 5': ''];
+
   setInterval(function(){
     const $slothOffset = $sloth.offset();
     const $burgerOffset1 = $burger1.offset();
@@ -98,11 +100,11 @@ $(() =>{
 
 }, 10);
   setTimeout(function (){
-    const $burgers = $('.burger');
     $('#modal').show();
     $('.playerScore1').text(score);
     $burgers.hide();
-  },5000);
+    $carrots.hide();
+  },30000);
 
 
 
