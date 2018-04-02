@@ -11,7 +11,7 @@ $(() =>{
   const $burgers = $('.burger');
   const $carrots = $('.carrot');
 
-  var scores = ['Player 1': '', 'Player 2': '', 'Player 3': '', 'Player 4': '', 'Player 5': ''];
+  var $scores = [];
 
   setInterval(function(){
     const $slothOffset = $sloth.offset();
@@ -33,7 +33,7 @@ $(() =>{
       }
     };
 
-// BURGER COLLISION
+// BURGER COLLISION - needs a sh**load of refactoring -- LOOP meeeee
 
     if ($burgerOffset1.left < $slothOffset.left + $sloth.width() &&
     $burgerOffset1.left + $burger1.width() > $slothOffset.left &&
@@ -71,7 +71,7 @@ $(() =>{
       $('#playerScore').text(score);
     }
 
-    // CARROT COLLISION
+    // CARROT COLLISION - needs a sh**load of refactoring -- LOOP
 
     if ($carrotOffset1.left < $slothOffset.left + $sloth.width() &&
     $carrotOffset1.left + $carrot1.width() > $slothOffset.left &&
@@ -97,15 +97,37 @@ $(() =>{
       $('#playerScore').text(score);
     }
 
-
 }, 10);
+
+// GAME TIMER: After 30 seconds, hide carrots/burgers and show score
+
   setTimeout(function (){
-    $('#modal').show();
+    $('#modalGame').show();
     $('.playerScore1').text(score);
+    $scores.push(score);
     $burgers.hide();
     $carrots.hide();
-  },30000);
+  }, 30000);
+
+// If player chooses to play again; push their score to the array for leaderboard and refresh values
+  $('#playAgain').on('click', (e) => {
+    $('#modalGame').hide();
+    $scores.push($('#playerScore'));
+    console.log($scores);
+    score = 0;
+    $('#playerScore').text(score);
+    $burgers.show();
+    $carrots.show();
+    setTimeout(function (){
+      $('#modalGame').show();
+      $('.playerScore1').text(score);
+      $scores.push(score);
+      $burgers.hide();
+      $carrots.hide();
+    }, 30000);
+  });
 
 
+// If player chooses leaderboard, close score modal and show the leaderboard **with music**
 
-})
+});

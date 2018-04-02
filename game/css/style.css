@@ -13,18 +13,41 @@ PINK: #FF4C65
 GREEN: #BCCF02
 */
 
+
+
 html {
-background-color:#59C4C5;
+  background: url('../images/jungle-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* HOMEPAGE */
+
+nav {
+  background-color:#FFC33C;
+  width:100%;
+  height:50px;
+  line-height: 50px;
+}
+
+nav a {
+  width:25%;
+  font-family: 'Kranky', cursive;  text-decoration:none;
+  font-size:25px;
+  color:white;
+  margin-left:40px;
+  line-height: 50px;
+}
+nav a:hover{
+  color: #FF4C65;
+}
+nav a:last-child {
+  margin-left: 10;
 }
 
 main {
   width: 80%;
   margin:0 auto;
-}
-
-header {
-  background:url(./images/cloud.png) cover;
-  background-size:cover;
 }
 
 #page1 {
@@ -37,7 +60,7 @@ header {
 
 /* MODAL */
 
-#modal {
+#modal, #modalGame {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -60,9 +83,14 @@ header {
   text-align:center;
   background-color: #BCCF02;
   margin: 5% auto; /* 15% from the top and centered */
-  padding: 20px;
+  padding: 30px;
   border: 3px dotted white;
-  width: 40%; /* Could be more or less, depending on screen size */
+  width: 40%;
+}
+
+.modal-content p {
+  padding-top:20px;
+  padding-bottom:20px;
 }
 
 span {
@@ -76,6 +104,7 @@ span {
   border-radius:3px;
   border:none;
   padding: 10px 20px;
+  margin-top:70px
   margin-left:20px;
   margin-right:20px;
 }
@@ -84,7 +113,7 @@ h2.score {
   color:white;
   font-size:60px;
   text-align:center;
-  margin-top: 50px;
+  margin-top:40px;
   font-family: 'Freckle Face', cursive;
   z-index: 1;
 }
@@ -177,4 +206,95 @@ h2.score {
 #sloth img {
   height:100px;
   width:100px;
+}
+
+ img.heart {
+  z-index: -2;
+  position:fixed;
+  top:5%;
+  left:25%;
+  display:inline-block;
+  height:650px;
+  align-items: center;
+  margin: 0 auto;
+}
+img.homeSloth{
+  height:270px;
+  display:inline-block;
+  position:fixed;
+  top:18%;
+  left:49%;
+}
+img.homeSloth:hover {
+  display:inline-block;
+  position:fixed;
+  top:18%;
+  left:49%;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+img.homeBurger{
+  height:250px;
+  display:inline-block;
+  position:fixed;
+  top:25%;
+  left:30%;
+}
+img.homeBurger:hover{
+  height:250px;
+  display:inline-block;
+  position:fixed;
+  top:25%;
+  left:30%;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+/* CSS RESET */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }

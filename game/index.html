@@ -12,6 +12,12 @@
   </head>
   <body>
     <header>
+      <nav class="home">
+        <a href="./homepage.html">Home</a>
+        <a href="#">Game</a>
+        <a href="#">Leaderboard</a>
+        <a href="#">About</a>
+      </nav>
       <h2 class="score">YOUR SCORE:     <span id="playerScore">   </span></h2>
     </header>
     <main>
@@ -24,7 +30,7 @@
         <div id="sloth"><img src="images/sloth2.png" alt=""> </div>
       </div>
     </main>
-    <div id="modal">
+    <div id="modalGame">
       <div class="modal-content">
         <p>You scored</p>
         <br>
@@ -32,8 +38,8 @@
         <br>
         <p>points!</p>
         <p>Still hungry?</p>
-        <button type="button" name="nextLevel">Play again.</button>
-        <button type="button" name="nextLevel">Leaderboard.</button>
+        <button type="button" id="playAgain">Play again.</button>
+        <button type="button" id="scores">Leaderboard.</button>
       </div>
     </div>
   </body>
