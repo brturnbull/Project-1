@@ -1,5 +1,20 @@
 $(() =>{
-  var score = 0;
+
+
+  setTimeout(function (){
+    $('#modalStart').show();
+
+      $('#startGame').click(function() {
+      $('#modalStart').hide();
+      console.log('yo');
+    });
+
+
+  let score = 0;
+  let $scores = [];
+  // let currentPlayerName = prompt('Who is playing?');
+  let currentPlayerScore;
+
   const $sloth = $('#sloth');
   const $burger1 = $('#b1');
   const $burger2 = $('#b2');
@@ -8,10 +23,10 @@ $(() =>{
   const $carrot1 = $('#c1');
   const $carrot2 = $('#c2');
 
-  const $burgers = $('.burger');
-  const $carrots = $('.carrot');
+  const $burgers = $('.burger'); // all burgers
+  const $carrots = $('.carrot'); // all sloths
 
-  var $scores = [];
+// WAIT FOR CLICK ON START TO PLAY GAME!
 
   setInterval(function(){
     const $slothOffset = $sloth.offset();
@@ -97,9 +112,13 @@ $(() =>{
       $('#playerScore').text(score);
     }
 
-}, 10);
+  }, 10);
 
-// GAME TIMER: After 30 seconds, hide carrots/burgers and show score
+  // COUNTDOWN TIMER
+
+
+
+  // GAME TIMER: After 30 seconds, hide carrots/burgers and show score
 
   setTimeout(function (){
     $('#modalGame').show();
@@ -109,7 +128,8 @@ $(() =>{
     $carrots.hide();
   }, 30000);
 
-// If player chooses to play again; push their score to the array for leaderboard and refresh values
+  // If player chooses to play again; push their score to the array for leaderboard and refresh values
+
   $('#playAgain').on('click', (e) => {
     $('#modalGame').hide();
     $scores.push($('#playerScore'));
@@ -119,7 +139,7 @@ $(() =>{
     $burgers.show();
     $carrots.show();
     setTimeout(function (){
-      $('#modalGame').show();
+      $('#modalGame').hide();
       $('.playerScore1').text(score);
       $scores.push(score);
       $burgers.hide();
@@ -127,6 +147,7 @@ $(() =>{
     }, 30000);
   });
 
+}, 100);
 
 // If player chooses leaderboard, close score modal and show the leaderboard **with music**
 
