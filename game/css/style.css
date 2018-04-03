@@ -13,8 +13,6 @@ PINK: #FF4C65
 GREEN: #BCCF02
 */
 
-
-
 html {
   background: url('../images/jungle-background.jpg');
   background-size: cover;
@@ -50,14 +48,6 @@ main {
   margin:0 auto;
 }
 
-#page1 {
-  height:1000px;
-}
-
-#page2 {
-  height:1000px;
-}
-
 /* MODAL */
 
 #modalBurger, #modalGame, #modalSloth {
@@ -83,6 +73,15 @@ main {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.countdown {
+  font-size:500px;
+  color:#FF4C65;
+  font-family: 'Kranky', cursive;
+  position: fixed;
+  top: 0%;
+  left: 36%;
 }
 
 .modal-start-content {
@@ -123,7 +122,23 @@ span {
   font-family: 'Snowburst One', cursive;
 }
 
-.modal-content button {
+.modal-start-content input {
+  display:inline-block;
+  padding: 10px 20px;
+  margin-top: 30px;
+  width:300px;
+}
+
+.modal-start-content h2 {
+  font-size: 50px;
+  margin:10px;
+}
+.modal-start-content p {
+  margin-top:20px;
+  font-size: 18px;
+}
+
+.modal-content button, .modal-start-content button {
   font-family: 'Montserrat', sans-serif;
   font-size:20px;
   background-color:#00C8F8;
@@ -167,6 +182,7 @@ h2.score {
   display:inline-block;
   z-index: -1;
 }
+
 .carrot {
   width:100px;
   height:100px;

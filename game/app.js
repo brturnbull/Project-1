@@ -1,41 +1,67 @@
 $(() =>{
 
-
-  setTimeout(function (){
-    $('#modalStart').show();
-
-      $('#startGame').click(function() {
-      $('#modalStart').hide();
-      console.log('yo');
-    });
-
+  $('#modalStart').show();
 
   let score = 0;
   let $scores = [];
-  // let currentPlayerName = prompt('Who is playing?');
-  let currentPlayerScore;
+  let $currentPlayerScore;
+  let $currentPlayer;
 
   const $sloth = $('#sloth');
-  const $burger1 = $('#b1');
-  const $burger2 = $('#b2');
-  const $burger3 = $('#b3');
-
-  const $carrot1 = $('#c1');
-  const $carrot2 = $('#c2');
-
   const $burgers = $('.burger'); // all burgers
   const $carrots = $('.carrot'); // all sloths
 
-// WAIT FOR CLICK ON START TO PLAY GAME!
+  $burgers.hide();
+  $carrots.hide();
+
+  $('#startGame').on('click', (e) => {
+    // retrieve the value from the input button and push into $currentPlayer
+    //  
+
+  });
+
+  function startGame() {
+    setTimeout(function (){
+      $('#modalGame').show();
+      $('.playerScore1').text(score);
+      $scores.push(score);
+      $burgers.hide();
+      $carrots.hide();
+      clearInterval()
+    }, 30000);
+  }
+// Countdown timer - starts at 4, decreases by 1 every  second and hide when
+// it gets to zero
+
+  let $timeIsRunning = false;
+  const $startGameBtn = $('.btn-start');
+  function startTimer() {
+    let $counter = 4;
+    let $interval = setInterval(function() {
+      $counter--;
+      $('.countdown').text($counter);
+      if ($counter === 0) {
+        clearInterval($interval);
+        $('.countdown').hide();
+        $burgers.show();
+        $carrots.show();
+        startGame();
+      }
+    }, 1000);
+  }
+
+// On start game button click, hide the start modal and start the countdown timer
+
+  $startGameBtn.on('click', function() {
+    $('#modalStart').hide();
+    timeIsRunning = true;
+    startTimer();
+  });
+
+  // SLOTH MOVING ON KEY DOWN
 
   setInterval(function(){
     const $slothOffset = $sloth.offset();
-    const $burgerOffset1 = $burger1.offset();
-    const $burgerOffset2 = $burger2.offset();
-    const $burgerOffset3 = $burger3.offset();
-
-    const $carrotOffset1 = $carrot1.offset();
-    const $carrotOffset2 = $carrot2.offset();
 
     document.onkeydown = function(e) {
       switch (e.keyCode) {
@@ -48,85 +74,38 @@ $(() =>{
       }
     };
 
-// BURGER COLLISION - needs a sh**load of refactoring -- LOOP meeeee
+    // CARROTS COLLISION
 
-    if ($burgerOffset1.left < $slothOffset.left + $sloth.width() &&
-    $burgerOffset1.left + $burger1.width() > $slothOffset.left &&
-    $burgerOffset1.top < $slothOffset.top + $sloth.height() &&
-    $burger1.height() + $burgerOffset1.top > $slothOffset.top) {
-      score += 10;
-      $burger1.hide();
-      setTimeout(function (){
-        $burger1.show();
-      },1000);
-      $('#playerScore').text(score);
+    for (let i = 0; i < $burgers.length; i++) {
+      if ($($burgers).offset().left < $slothOffset.left + $sloth.width() &&
+      $($burgers[i]).offset().left + $($burgers[i]).width() > $slothOffset.left &&
+      $($burgers[i]).offset().top < $slothOffset.top + $sloth.height() &&
+      $($burgers[i]).height() + $($burgers[i]).offset().top > $slothOffset.top) {
+        score += 10;
+        $($burgers[i]).hide();
+        setTimeout(function (){
+          $($burgers[i]).show();
+        },1000);
+        $('#playerScore').text(score);
+      }
     }
 
-    if ($burgerOffset2.left < $slothOffset.left + $sloth.width() &&
-    $burgerOffset2.left + $burger2.width() > $slothOffset.left &&
-    $burgerOffset2.top < $slothOffset.top + $sloth.height() &&
-    $burger2.height() + $burgerOffset2.top > $slothOffset.top) {
-      score += 10;
-      $burger2.hide();
-      setTimeout(function (){
-        $burger2.show();
-      },1000);
-      $('#playerScore').text(score);
+    // CARROTS COLLISION
+
+    for (let j = 0; j < $carrots.length; j++) {
+      if ($($carrots).offset().left < $slothOffset.left + $sloth.width() &&
+      $($carrots[j]).offset().left + $($carrots[j]).width() > $slothOffset.left &&
+      $($carrots[j]).offset().top < $slothOffset.top + $sloth.height() &&
+      $($carrots[j]).height() + $($carrots[j]).offset().top > $slothOffset.top) {
+        score-=5;
+        $($carrots[j]).hide();
+        setTimeout(function (){
+          $($carrots[j]).show();
+        },1000);
+        $('#playerScore').text(score);
+      }
     }
-
-    if ($burgerOffset3.left < $slothOffset.left + $sloth.width() &&
-    $burgerOffset3.left + $burger3.width() > $slothOffset.left &&
-    $burgerOffset3.top < $slothOffset.top + $sloth.height() &&
-    $burger3.height() + $burgerOffset3.top > $slothOffset.top) {
-      score += 10;
-      $burger3.hide();
-      setTimeout(function (){
-        $burger3.show();
-      },1000);
-      $('#playerScore').text(score);
-    }
-
-    // CARROT COLLISION - needs a sh**load of refactoring -- LOOP
-
-    if ($carrotOffset1.left < $slothOffset.left + $sloth.width() &&
-    $carrotOffset1.left + $carrot1.width() > $slothOffset.left &&
-    $carrotOffset1.top < $slothOffset.top + $sloth.height() &&
-    $carrot1.height() + $carrotOffset1.top > $slothOffset.top) {
-      score -= 5;
-      $carrot1.hide();
-      setTimeout(function (){
-        $carrot1.show();
-      },1000);
-      $('#playerScore').text(score);
-    }
-
-    if ($carrotOffset2.left < $slothOffset.left + $sloth.width() &&
-    $carrotOffset2.left + $carrot2.width() > $slothOffset.left &&
-    $carrotOffset2.top < $slothOffset.top + $sloth.height() &&
-    $carrot2.height() + $carrotOffset2.top > $slothOffset.top) {
-      score -= 5;
-      $carrot2.hide();
-      setTimeout(function (){
-        $carrot2.show();
-      },1000);
-      $('#playerScore').text(score);
-    }
-
   }, 10);
-
-  // COUNTDOWN TIMER
-
-
-
-  // GAME TIMER: After 30 seconds, hide carrots/burgers and show score
-
-  setTimeout(function (){
-    $('#modalGame').show();
-    $('.playerScore1').text(score);
-    $scores.push(score);
-    $burgers.hide();
-    $carrots.hide();
-  }, 30000);
 
   // If player chooses to play again; push their score to the array for leaderboard and refresh values
 
@@ -134,21 +113,11 @@ $(() =>{
     $('#modalGame').hide();
     $scores.push($('#playerScore'));
     console.log($scores);
-    score = 0;
+    score=0;
     $('#playerScore').text(score);
-    $burgers.show();
-    $carrots.show();
-    setTimeout(function (){
-      $('#modalGame').hide();
-      $('.playerScore1').text(score);
-      $scores.push(score);
-      $burgers.hide();
-      $carrots.hide();
-    }, 30000);
+    timeIsRunning = true;
+    startGame();
   });
 
-}, 100);
-
 // If player chooses leaderboard, close score modal and show the leaderboard **with music**
-
 });
