@@ -3,9 +3,9 @@ $(() =>{
   $('#modalStart').show();
 
   let score = 0;
-  let $scores = [];
-  let $currentPlayerScore;
-  let $currentPlayer;
+  let $currentPlayerName;
+  const scores = {};
+  let currentPlayerScore;
 
   const $sloth = $('#sloth');
   const $burgers = $('.burger'); // all burgers
@@ -18,24 +18,25 @@ $(() =>{
     setTimeout(function (){
       $('#modalGame').show();
       $('.playerScore1').text(score);
-      $currentPlayerScore = score;
-      console.log($currentPlayerScore);
-      $scores.push(score);
+      currentPlayerScore = score;
+      console.log(currentPlayerScore);
       $burgers.hide();
       $carrots.hide();
-      clearInterval()
-
+      clearInterval();
+      scores[$currentPlayerName] = currentPlayerScore;
+      console.log(scores);
     }, 5000);
   }
-// Countdown timer - starts at 4, decreases by 1 every  second and hide when
-// it gets to zero
+  // Countdown timer - starts at 4, decreases by 1 every  second and hide when
+  // it gets to zero
 
   let $timeIsRunning = false;
   const $startGameBtn = $('.btn-start');
   function startTimer() {
     // retrieve the value from the input button and push into $currentPlayer
-    let $currentPlayer = $('.inputName').val();
-    console.log($currentPlayer);
+    $currentPlayerName = $('.inputName').val();
+    console.log($currentPlayerName);
+
     let $counter = 4;
     const $interval = setInterval(function() {
       $counter--;
@@ -50,7 +51,7 @@ $(() =>{
     }, 1000);
   }
 
-// On start game button click, hide the start modal and start the countdown timer
+  // On start game button click, hide the start modal and start the countdown timer
 
   $startGameBtn.on('click', function() {
     $('#modalStart').hide();
@@ -112,13 +113,13 @@ $(() =>{
   $('#playAgain').on('click', () => {
     $('#modalGame').hide();
     $('.countdown').show();
-    $scores.push($('#playerScore'));
-    console.log($scores);
+    // scores.push($('#playerScore'));
+    console.log(scores);
     score=0;
     $('#playerScore').text(score);
     $timeIsRunning = true;
     startTimer();
   });
 
-// If player chooses leaderboard, close score modal and show the leaderboard **with music**
+  // If player chooses leaderboard, close score modal and show the leaderboard **with music**
 });
