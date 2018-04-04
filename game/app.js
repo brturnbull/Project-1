@@ -18,11 +18,14 @@ $(() =>{
     setTimeout(function (){
       $('#modalGame').show();
       $('.playerScore1').text(score);
+      $currentPlayerScore = score;
+      console.log($currentPlayerScore);
       $scores.push(score);
       $burgers.hide();
       $carrots.hide();
       clearInterval()
-    }, 30000);
+
+    }, 5000);
   }
 // Countdown timer - starts at 4, decreases by 1 every  second and hide when
 // it gets to zero
@@ -31,7 +34,8 @@ $(() =>{
   const $startGameBtn = $('.btn-start');
   function startTimer() {
     // retrieve the value from the input button and push into $currentPlayer
-
+    let $currentPlayer = $('.inputName').val();
+    console.log($currentPlayer);
     let $counter = 4;
     const $interval = setInterval(function() {
       $counter--;
@@ -107,12 +111,13 @@ $(() =>{
 
   $('#playAgain').on('click', () => {
     $('#modalGame').hide();
+    $('.countdown').show();
     $scores.push($('#playerScore'));
     console.log($scores);
     score=0;
     $('#playerScore').text(score);
-    timeIsRunning = true;
-    startGame();
+    $timeIsRunning = true;
+    startTimer();
   });
 
 // If player chooses leaderboard, close score modal and show the leaderboard **with music**
