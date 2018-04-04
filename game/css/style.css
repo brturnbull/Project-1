@@ -50,7 +50,7 @@ main {
 
 /* MODAL */
 
-#modalBurger, #modalGame, #modalSloth {
+#modalGame, #modalLeaderboard {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -84,6 +84,7 @@ main {
   left: 36%;
 }
 
+/* MODAL CONTENT */
 .modal-start-content {
   color:white;
   border-radius:10px;
@@ -98,8 +99,7 @@ main {
   width: 40%;
 }
 
-/* MODAL CONTENT */
-.modal-content, .aboutBurger, .leaderboardSloth {
+.modal-content {
   color:white;
   border-radius:10px;
   font-family: 'Snowburst One', cursive;
@@ -116,6 +116,34 @@ main {
 .modal-content p {
   padding-top:20px;
   padding-bottom:20px;
+}
+
+.modal-leaderboard-content {
+  color:white;
+  border-radius:10px;
+  font-family: 'Snowburst One', cursive;
+  font-size:30px;
+  font-weight:bold;
+  text-align:center;
+  background-color: #FF4C65;
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 30px;
+  border: 3px dotted white;
+  width: 40%;
+}
+.modal-leaderboard-content table {
+  font-size:20px;
+  align-items: center;
+  margin: 0 auto;
+
+}
+.modal-leaderboard-content h2 {
+  font-size:30px;
+  margin:15px;
+  padding-bottom:10px;
+}
+.modal-leaderboard-content td {
+  padding:5px;
 }
 
 span {

@@ -1,6 +1,7 @@
 $(() =>{
 
-  $('#modalStart').show();
+  // $('#modalStart').show();
+  $('#modalLeaderboard').show();
 
   let score = 0;
   let $currentPlayerName;
@@ -23,6 +24,7 @@ $(() =>{
       $burgers.hide();
       $carrots.hide();
       clearInterval();
+      localStorage.setItem($currentPlayerName, currentPlayerScore)
       scores[$currentPlayerName] = currentPlayerScore;
       console.log(scores);
     }, 5000);
@@ -30,7 +32,7 @@ $(() =>{
   // Countdown timer - starts at 4, decreases by 1 every  second and hide when
   // it gets to zero
 
-  let $timeIsRunning = false;
+  let timeIsRunning = false;
   const $startGameBtn = $('.btn-start');
   function startTimer() {
     // retrieve the value from the input button and push into $currentPlayer
@@ -113,7 +115,6 @@ $(() =>{
   $('#playAgain').on('click', () => {
     $('#modalGame').hide();
     $('.countdown').show();
-    // scores.push($('#playerScore'));
     console.log(scores);
     score=0;
     $('#playerScore').text(score);
