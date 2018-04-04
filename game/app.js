@@ -24,9 +24,9 @@ $(() =>{
       $burgers.hide();
       $carrots.hide();
       clearInterval();
-      localStorage.setItem($currentPlayerName, currentPlayerScore)
-      scores[$currentPlayerName] = currentPlayerScore;
-      console.log(scores);
+      // localStorage.setItem(currentPlayerScore, $currentPlayerName);
+      // scores[$currentPlayerName] = currentPlayerScore;
+      // console.log(scores);
     }, 5000);
   }
   // Countdown timer - starts at 4, decreases by 1 every  second and hide when
@@ -121,6 +121,21 @@ $(() =>{
     $timeIsRunning = true;
     startTimer();
   });
+
+  var sortable = [];
+  for (var name in localStorage) {
+      sortable.push([name, localStorage[name]]);
+  }
+
+  // console.log(sortable);
+  //
+  // sortable.sort(function(a,b){
+  //   console.log(a[1] - b[1]);
+  // })
+
+  // sortable.sort(function(a,b) {
+  //   console.log((a[1]-b[1]));
+  // });
 
   // If player chooses leaderboard, close score modal and show the leaderboard **with music**
 });

@@ -50,7 +50,7 @@ main {
 
 /* MODAL */
 
-#modalGame, #modalLeaderboard {
+#modalGame {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -119,6 +119,9 @@ main {
 }
 
 .modal-leaderboard-content {
+  position:fixed;
+  right:40px;
+  bottom:40px;
   color:white;
   border-radius:10px;
   font-family: 'Snowburst One', cursive;
@@ -126,15 +129,17 @@ main {
   font-weight:bold;
   text-align:center;
   background-color: #FF4C65;
-  margin: 5% auto; /* 15% from the top and centered */
-  padding: 30px;
+  opacity: 0.8;
+  /* margin: auto; /* 15% from the top and centered */ */
+  padding: 10px;
   border: 3px dotted white;
-  width: 40%;
+  width: 14%;
 }
 .modal-leaderboard-content table {
   font-size:20px;
   align-items: center;
   margin: 0 auto;
+  padding-bottom:10px;
 
 }
 .modal-leaderboard-content h2 {
