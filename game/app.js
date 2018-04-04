@@ -14,12 +14,6 @@ $(() =>{
   $burgers.hide();
   $carrots.hide();
 
-  $('#startGame').on('click', (e) => {
-    // retrieve the value from the input button and push into $currentPlayer
-    //  
-
-  });
-
   function startGame() {
     setTimeout(function (){
       $('#modalGame').show();
@@ -36,8 +30,10 @@ $(() =>{
   let $timeIsRunning = false;
   const $startGameBtn = $('.btn-start');
   function startTimer() {
+    // retrieve the value from the input button and push into $currentPlayer
+
     let $counter = 4;
-    let $interval = setInterval(function() {
+    const $interval = setInterval(function() {
       $counter--;
       $('.countdown').text($counter);
       if ($counter === 0) {
@@ -77,7 +73,7 @@ $(() =>{
     // CARROTS COLLISION
 
     for (let i = 0; i < $burgers.length; i++) {
-      if ($($burgers).offset().left < $slothOffset.left + $sloth.width() &&
+      if ($($burgers[i]).offset().left < $slothOffset.left + $sloth.width() &&
       $($burgers[i]).offset().left + $($burgers[i]).width() > $slothOffset.left &&
       $($burgers[i]).offset().top < $slothOffset.top + $sloth.height() &&
       $($burgers[i]).height() + $($burgers[i]).offset().top > $slothOffset.top) {
@@ -93,7 +89,7 @@ $(() =>{
     // CARROTS COLLISION
 
     for (let j = 0; j < $carrots.length; j++) {
-      if ($($carrots).offset().left < $slothOffset.left + $sloth.width() &&
+      if ($($carrots[j]).offset().left < $slothOffset.left + $sloth.width() &&
       $($carrots[j]).offset().left + $($carrots[j]).width() > $slothOffset.left &&
       $($carrots[j]).offset().top < $slothOffset.top + $sloth.height() &&
       $($carrots[j]).height() + $($carrots[j]).offset().top > $slothOffset.top) {
@@ -109,7 +105,7 @@ $(() =>{
 
   // If player chooses to play again; push their score to the array for leaderboard and refresh values
 
-  $('#playAgain').on('click', (e) => {
+  $('#playAgain').on('click', () => {
     $('#modalGame').hide();
     $scores.push($('#playerScore'));
     console.log($scores);
