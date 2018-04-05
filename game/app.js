@@ -1,6 +1,6 @@
 $(() =>{
 
-  // $('#modalStart').show();
+  $('#modalStart').show();
   $('#modalLeaderboard').show();
 
   let score = 0;
@@ -24,9 +24,9 @@ $(() =>{
       $burgers.hide();
       $carrots.hide();
       clearInterval();
-      // localStorage.setItem(currentPlayerScore, $currentPlayerName);
-      // scores[$currentPlayerName] = currentPlayerScore;
-      // console.log(scores);
+      localStorage.setItem($currentPlayerName, currentPlayerScore);
+      scores[$currentPlayerName] = (currentPlayerScore);
+      console.log(scores);
     }, 5000);
   }
   // Countdown timer - starts at 4, decreases by 1 every  second and hide when
@@ -122,19 +122,48 @@ $(() =>{
     startTimer();
   });
 
+  let names = Object.keys(localStorage);
+  let tempScores = Object.values(localStorage).map(Number);
+
+  var keys = names;
+  var values = tempScores;
+
+  var result = {};
+
+  keys.forEach((key, i) => result[key] = values[i]);
+
+  console.log(result);
+
   var sortable = [];
-  for (var name in localStorage) {
-      sortable.push([name, localStorage[name]]);
+  for (var players in result) {
+    sortable.push([players, result[players]]);
   }
 
-  // console.log(sortable);
-  //
-  // sortable.sort(function(a,b){
-  //   console.log(a[1] - b[1]);
-  // })
 
-  // sortable.sort(function(a,b) {
-  //   console.log((a[1]-b[1]));
+  sortable.sort(function(a, b) {
+    return a[1] - b[1];
+  });
+
+  console.log(sortable);
+
+
+
+  //
+  // var maxSpeed = {
+  //     car: 300,
+  //     bike: 60,
+  //     motorbike: 200,
+  //     airplane: 1000,
+  //     helicopter: 400,
+  //     rocket: 8 * 60 * 60
+  // };
+  // var sortable = [];
+  // for (var vehicle in maxSpeed) {
+  //     sortable.push([vehicle, maxSpeed[vehicle]]);
+  // }
+  //
+  // sortable.sort(function(a, b) {
+  //     return a[1] - b[1];
   // });
 
   // If player chooses leaderboard, close score modal and show the leaderboard **with music**
