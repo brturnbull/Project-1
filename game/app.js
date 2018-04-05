@@ -122,49 +122,29 @@ $(() =>{
     startTimer();
   });
 
-  let names = Object.keys(localStorage);
-  let tempScores = Object.values(localStorage).map(Number);
+  // -------------------------- Leaderboard -----------------------------------
 
-  var keys = names;
-  var values = tempScores;
-
+  var keys = Object.keys(localStorage);
+  var values = Object.values(localStorage).map(Number);
   var result = {};
 
   keys.forEach((key, i) => result[key] = values[i]);
-
-  console.log(result);
 
   var sortable = [];
   for (var players in result) {
     sortable.push([players, result[players]]);
   }
 
-
   sortable.sort(function(a, b) {
-    return a[1] - b[1];
+    return b[1] - a[1];
   });
 
-  console.log(sortable);
+  // INSERT TOP 5 SCORES ON LEADERBOARD
 
+  $('.hs1').text(sortable[0]);
+  $('.hs2').text(sortable[1]);
+  $('.hs3').text(sortable[2]);
+  $('.hs4').text(sortable[3]);
+  $('.hs5').text(sortable[4]);
 
-
-  //
-  // var maxSpeed = {
-  //     car: 300,
-  //     bike: 60,
-  //     motorbike: 200,
-  //     airplane: 1000,
-  //     helicopter: 400,
-  //     rocket: 8 * 60 * 60
-  // };
-  // var sortable = [];
-  // for (var vehicle in maxSpeed) {
-  //     sortable.push([vehicle, maxSpeed[vehicle]]);
-  // }
-  //
-  // sortable.sort(function(a, b) {
-  //     return a[1] - b[1];
-  // });
-
-  // If player chooses leaderboard, close score modal and show the leaderboard **with music**
 });
