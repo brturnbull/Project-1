@@ -2,22 +2,26 @@ $(() =>{
 
   $('#modalStart').show();
   $('#modalLeaderboard').show();
+  $('.score').hide();
 
   let score = 0;
   let $currentPlayerName;
   const scores = {};
   let currentPlayerScore;
 
+  const $modalGame = $('#modalGame')
   const $sloth = $('#sloth');
   const $burgers = $('.burger'); // all burgers
   const $carrots = $('.carrot'); // all sloths
+  const $modal = $('.modal');
 
   $burgers.hide();
   $carrots.hide();
 
   function startGame() {
+    $('.score').show();
     setTimeout(function (){
-      $('#modalGame').show();
+      $modalGame.show();
       $('.playerScore1').text(score);
       currentPlayerScore = score;
       console.log(currentPlayerScore);
@@ -35,9 +39,9 @@ $(() =>{
   let timeIsRunning = false;
   const $startGameBtn = $('.btn-start');
   function startTimer() {
+
     // retrieve the value from the input button and push into $currentPlayer
     $currentPlayerName = $('.inputName').val();
-    console.log($currentPlayerName);
 
     let $counter = 4;
     const $interval = setInterval(function() {
@@ -56,6 +60,10 @@ $(() =>{
   // On start game button click, hide the start modal and start the countdown timer
 
   $startGameBtn.on('click', function() {
+    // if ($('.inputName').val() === '') {
+    //   alert('Please enter a valid name');
+      // event.preventDefault()
+    // };
     $('#modalStart').hide();
     timeIsRunning = true;
     startTimer();
@@ -90,6 +98,12 @@ $(() =>{
           $($burgers[i]).show();
         },1000);
         $('#playerScore').text(score);
+        setTimeout(function(){
+          $('#plus10').fadeIn(100);
+        }, 0);
+        setTimeout(function(){
+          $('#plus10').fadeOut(100);
+        }, 300);
       }
     }
 
@@ -147,10 +161,10 @@ $(() =>{
   $('.hs4').text(sortable[3]);
   $('.hs5').text(sortable[4]);
 
-  window.onclick = function(event) {
-    if (event.target !== modal) {
-        modal.style.display = "none";
-    }
-}
+//   window.onclick = function(event) {
+//     if (event.target !== $modals) {
+//       $modals.hide();
+//     }
+// }
 
 });
