@@ -113,13 +113,13 @@ $(() =>{
   // If player chooses to play again; push their score to the array for leaderboard and refresh values
 
   $('#playAgain').on('click', () => {
-    $('#modalGame').hide();
-    $('.countdown').show();
-    console.log(scores);
-    score=0;
-    $('#playerScore').text(score);
-    $timeIsRunning = true;
-    startTimer();
+    location.reload();
+    // $('.countdown').show();
+    // console.log(scores);
+    // score=0;
+    // $('#playerScore').text(score);
+    // $timeIsRunning = true;
+    // startTimer();
   });
 
   // -------------------------- Leaderboard -----------------------------------
@@ -146,5 +146,11 @@ $(() =>{
   $('.hs3').text(sortable[2]);
   $('.hs4').text(sortable[3]);
   $('.hs5').text(sortable[4]);
+
+  window.onclick = function(event) {
+    if (event.target !== modal) {
+        modal.style.display = "none";
+    }
+}
 
 });

@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="./css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Freckle+Face|Fredericka+the+Great|Kranky|Snowburst+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -12,15 +13,11 @@
   </head>
   <body>
     <header>
-      <!-- <nav class="home">
-        <a href="./homepage.html">Home</a>
-        <a href="#">Game</a>
-        <a href="#">Leaderboard</a>
-        <a href="#">About</a>
-      </nav> -->
       <h2 class="score">YOUR SCORE:     <span id="playerScore">   </span></h2>
     </header>
     <main>
+      <div class="sun">The <br>Hungry<br> Sloth</div>
+      <div class="sunImg"><img src="images/sun.png" alt=""> </div>
       <span class="countdown"></span>
         <div id="b1" class="burger"><img src="images/hamburger.png" alt=""></div>
         <div id="c1" class="carrot"><img src="images/carrot.png" alt=""></div>
@@ -29,11 +26,12 @@
         <div id="b3" class="burger"><img src="images/hamburger.png" alt=""></div>
         <div id="sloth"><img src="images/sloth2.png" alt=""> </div>
     </main>
+    <!-- <button class="play">PLAY</button> -->
     <div class="social-buttons">
       <a href="https://github.com/brturnbull"><img src="images/github.png" alt="LinkedIn Logo"></a>
       <a href="https://www.linkedin.com/in/bridget-turnbull-21581b141/"><img src="./images/linkedin.jpg" alt="Github Logo"></a>
     </div>
-    <div id="modalStart">
+    <div id="modalStart" class="modal">
       <div class="modal-start-content">
         <h2>Instructions</h2>
         <p>
@@ -71,7 +69,7 @@
       </table>
     </div>
     <div id="modalGame">
-      <div class="modal-content">
+      <div class="modal modal-content">
         <p>You scored</p>
         <span class="playerScore1"></span>
         <br>
