@@ -120,7 +120,7 @@ main {
 
 .modal-leaderboard-content {
   position:fixed;
-  right:40px;
+  left:40px;
   bottom:40px;
   color:white;
   border-radius:10px;
@@ -153,6 +153,27 @@ main {
 
 span {
   font-family: 'Snowburst One', cursive;
+}
+
+.social-buttons {
+  right:40px;
+  bottom:40px;
+  padding:4px;
+  display: inline-block;
+  position:fixed;
+  color:white;
+  border-radius:10px;
+  text-align:left;
+  background-color: #FFC33C;
+  opacity: 0.8;
+  border: 3px dotted white;
+  width: 10 %;
+}
+
+.social-buttons img {
+  border-radius:10px;
+  height:50px;
+  margin:7px;
 }
 
 .modal-start-content input {

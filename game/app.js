@@ -139,7 +139,7 @@ $(() =>{
     return b[1] - a[1];
   });
 
-  // INSERT TOP 5 SCORES ON LEADERBOARD
+  // INSERT TOP 5 SCORES ON LEADERBOARD - can use a loop
 
   $('.hs1').text(sortable[0]);
   $('.hs2').text(sortable[1]);
