@@ -20,7 +20,7 @@ $(() =>{
 
 //------------------------------- Pre-Game Setup ------------------------------
 
-  audio3.play();
+  // audio3.play();
   $('#modalLeaderboard').show();
   $modalStart.show();
   $score.hide();
@@ -134,11 +134,11 @@ $(() =>{
 
   // If player clicks outside of the modal, close the modal
 
-  // window.on('click', (e) => {
-  //   if (e.target !== modal) {
-  //     $modalStart.hide();
-  //   }
-  // });
+  $('body').click(function() {
+    if (!$(this.target).is($modalStart)) {
+      $modalStart.hide();
+    }
+  });
 
   // -------------------------- Leaderboard -----------------------------------
 
