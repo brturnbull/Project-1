@@ -148,7 +148,7 @@ $(() =>{
   var values = Object.values(localStorage).map(Number);
 
   // Declare new object to sort values now that numbers have been converted
-  var result = {};
+  var result = {}; 
 
   // creating a new object with the keys and values matches back up
   keys.forEach((key, i) => result[key] = values[i]);
