@@ -4,7 +4,6 @@ $(() =>{
   let $currentPlayerName;
   let currentPlayerScore;
 
-
   const audio1 = new Audio('./sounds/ding.mp3');
   const audio2 = new Audio('./sounds/lose-life.mp3');
   const audio3 = new Audio('./sounds/sloth-island.mp3');
@@ -13,11 +12,13 @@ $(() =>{
   const $sloth = $('#sloth');
   const $burgers = $('.burger'); // all burgers
   const $carrots = $('.carrot'); // all sloths
-  const $modals = $('.modal');
+  const $modalStartContent = $('.modal-start-content');
   const $score = $('.score');
   const $countdown = $('.countdown');
   const $modalStart = $('#modalStart')
   const $input = $('.inputName');
+
+//------------------------------- Pre-Game Setup ------------------------------
 
   audio3.play();
   $('#modalLeaderboard').show();
@@ -26,19 +27,23 @@ $(() =>{
   $burgers.hide();
   $carrots.hide();
 
+    // ----------------------------- Start Game Function  --------------------------
+    // Show the score, and on 30 second timeout hide burgers/carrots, clear timer
+    // and push the score
   function startGame() {
     $score.show();
     setTimeout(function (){
       $modalGame.show();
       $('.playerScore1').text(score);
       currentPlayerScore = score;
+      clearInterval();
       $burgers.hide();
       $carrots.hide();
-      clearInterval();
       localStorage.setItem($currentPlayerName, currentPlayerScore);
       scores[$currentPlayerName] = (currentPlayerScore);
-    }, 5000);
+    }, 30000);
   }
+
   // Countdown timer - starts at 4, decreases by 1 every  second and hide when
   // it gets to zero
   let timeIsRunning = false;
@@ -63,22 +68,15 @@ $(() =>{
   }
 
   // On start game button click, hide the start modal and start the countdown timer
-
   $startGameBtn.on('click', function() {
-    // if ($('.inputName').val() === '') {
-    //   alert('Please enter a valid name');
-    // event.preventDefault()
-    // };
+    if ($('.inputName').val() === '') {
+      alert('Please enter a valid name');
+      return false;
+    }
     $modalStart.hide();
     timeIsRunning = true;
     startTimer();
   });
-
-  window.onclick = function(event) {
-    if (event.target !== modal) {
-
-    }
-}
 
   //-------------------------SLOTH MOVEMENT-------------------------------------
 
@@ -95,6 +93,7 @@ $(() =>{
           break;
       }
     };
+
     //-------------------------------COLLISIONS---------------------------------
 
     for (let i = 0; i < $burgers.length; i++) {
@@ -133,6 +132,14 @@ $(() =>{
     location.reload();
   });
 
+  // If player clicks outside of the modal, close the modal
+
+  // window.on('click', (e) => {
+  //   if (e.target !== modal) {
+  //     $modalStart.hide();
+  //   }
+  // });
+
   // -------------------------- Leaderboard -----------------------------------
 
   // Split local storage object into keys and values to convert scores to numbers
@@ -162,11 +169,9 @@ $(() =>{
   // for (let i = 0; i < $highScores.length; i++) {
   //   $highScores.text(sortable[i]);
   // }
-  //
   $('.hs1').text(sortable[0]);
   $('.hs2').text(sortable[1]);
   $('.hs3').text(sortable[2]);
   $('.hs4').text(sortable[3]);
   $('.hs5').text(sortable[4]);
-
 });
