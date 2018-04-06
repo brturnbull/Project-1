@@ -20,7 +20,7 @@ $(() =>{
 
 //------------------------------- Pre-Game Setup ------------------------------
 
-  // audio3.play();
+  audio3.play();
   $('#modalLeaderboard').show();
   $modalStart.show();
   $score.hide();
@@ -134,11 +134,11 @@ $(() =>{
 
   // If player clicks outside of the modal, close the modal
 
-  $('body').click(function() {
-    if (!$(this.target).is($modalStart)) {
-      $modalStart.hide();
-    }
-  });
+  // $('body').click(function() {
+  //   if (!$(this.target).is($modalStart)) {
+  //     $modalStart.hide();
+  //   }
+  // });
 
   // -------------------------- Leaderboard -----------------------------------
 
@@ -148,7 +148,7 @@ $(() =>{
   var values = Object.values(localStorage).map(Number);
 
   // Declare new object to sort values now that numbers have been converted
-  var result = {}; 
+  var result = {};
 
   // creating a new object with the keys and values matches back up
   keys.forEach((key, i) => result[key] = values[i]);
