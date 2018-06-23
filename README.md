@@ -6,7 +6,7 @@
    After tackling HTML, CSS and JavaScript for two and a half weeks, we were given the brief for our first project which was to build a game using what we had learnt so far. With such a wide scope of options I decided to combine two things I love most in life - sloths and burgers. The finished product was a collision based game which required the player to move the sloth at the bottom of the screen to collect burgers and score as many points as they could while at the same time avoiding the carrots as they deducted points.
 
 ### Created By
-  Bridget Turnbull
+  Solo - Bridget Turnbull
 
 
 ### Timeframe
