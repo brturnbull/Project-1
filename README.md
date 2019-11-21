@@ -1,4 +1,4 @@
-# WDI Project 4: Sloth Burger
+# WDI Project 4: The Hungry Sloth 
 
 ---
 
