@@ -1,4 +1,4 @@
-# WDI Project 4: The Hungry Sloth 
+# WDI Project 1: The Hungry Sloth 
 
 ---
 
